@@ -108,8 +108,6 @@ class hubaaa.GitHubEndpointPuller extends hubaaa.EndpointPuller
       log.enter('process')
       expect(notification).to.be.ok
       expect(thread).to.be.ok
-      expect(@user.profile.name).to.be.ok
-      expect(@user.services.slack.accessToken).to.be.ok
       expect(@user.services.slack.incoming_webhook.url).to.be.ok
 
       return if not thread.subject.html_url?
