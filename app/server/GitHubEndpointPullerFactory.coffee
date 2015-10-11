@@ -37,7 +37,7 @@ class hubaaa.GitHubEndpointPullerFactory
     try
       log.enter('onLogin')
       expect(login.user).to.be.ok
-      return if not login.type is 'github'
+      return if login.type isnt 'github'
       expect(login.user.services.github.username).to.be.ok
       @pullers[login.user.services.github.username] = new hubaaa.GitHubEndpointPuller(login.user)
       @pullers[login.user.services.github.username].start()

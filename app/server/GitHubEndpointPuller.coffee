@@ -110,13 +110,20 @@ class hubaaa.GitHubEndpointPuller extends hubaaa.EndpointPuller
       expect(thread).to.be.ok
       expect(@user.profile.name).to.be.ok
       expect(@user.services.slack.accessToken).to.be.ok
+      expect(@user.services.slack.incoming_webhook.url).to.be.ok
 
       return if not thread.subject.html_url?
 
-      response = SlackAPI.chat.postMessage @user.services.slack.accessToken,
-        "@#{@user.profile.name}",
-        "You were mentioned in '#{thread.subject.title}' at #{thread.subject.html_url}",
-        { }
+      response = HTTP.post @user.services.slack.incoming_webhook.url, {
+        data:
+          username: 'rutalking2me',
+          text: "You were mentioned in '#{thread.subject.title}' at <#{thread.subject.html_url}>"
+      }
+
+#      response = SlackAPI.chat.postMessage @user.services.slack.accessToken,
+#        "@#{@user.profile.name}",
+#        "You were mentioned in '#{thread.subject.title}' at #{thread.subject.html_url}",
+#        { }
 
       log.info response
 
