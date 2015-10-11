@@ -18,3 +18,18 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
+coffeescript
+bozhao:link-accounts
+acemtp:accounts-slack
+accounts-github
+semantic:ui-css
+useraccounts:core
+useraccounts:semantic-ui
+kadira:flow-router
+#useraccounts:flow-routing
+kadira:blaze-layout
+semantic:ui-icon
+ovcharik:alertifyjs
+practicalmeteor:loglevel
+practicalmeteor:chai
+manuel:viewmodel
