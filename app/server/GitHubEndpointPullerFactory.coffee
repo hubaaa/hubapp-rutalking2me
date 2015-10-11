@@ -1,4 +1,4 @@
-log = new ObjectLogger('hubaaa.GitHubEndpointPullerFactory', 'info')
+log = new ObjectLogger('hubaaa.GitHubEndpointPullerFactory', 'debug')
 
 # TODO: This is a naive implementation. While still in non-clustered app mode,
 # we should have a "cron" job that checks every 5 minutes for:
@@ -28,8 +28,22 @@ class hubaaa.GitHubEndpointPullerFactory
         expect(user.services.github.username).to.be.ok
         @pullers[user.services.github.username] = new hubaaa.GitHubEndpointPuller(user)
         @pullers[user.services.github.username].start()
+
+      Accounts.onLogin @onLogin
     finally
       log.return()
+
+  onLogin: (login)=>
+    try
+      log.enter('onLogin')
+      expect(login.user).to.be.ok
+      return if not login.type is 'github'
+      expect(login.user.services.github.username).to.be.ok
+      @pullers[login.user.services.github.username] = new hubaaa.GitHubEndpointPuller(login.user)
+      @pullers[login.user.services.github.username].start()
+    finally
+      log.return()
+
 
 
 Meteor.startup ->
