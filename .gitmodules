@@ -7,3 +7,9 @@
 [submodule "app/packages/accounts-trello"]
 	path = app/packages/accounts-trello
 	url = git@github.com:jsep/meteor-accounts-trello.git
+[submodule "app/packages/link-accounts"]
+	path = app/packages/link-accounts
+	url = git@github.com:hubaaa/meteor-link-accounts.git
+[submodule "app/packages/trello"]
+	path = app/packages/trello
+	url = git@github.com:jsep/meteor-trello.git

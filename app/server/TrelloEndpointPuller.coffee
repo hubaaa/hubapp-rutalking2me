@@ -1,4 +1,4 @@
-log = new ObjectLogger('TrelloEndpointPuller', 'debug')
+log = new ObjectLogger('TrelloEndpointPuller', 'info')
 
 @trelloEndpointPulls = new Mongo.Collection "trelloEndpointPulls"
 trelloEndpointPulls._ensureIndex { 'id': 1 }

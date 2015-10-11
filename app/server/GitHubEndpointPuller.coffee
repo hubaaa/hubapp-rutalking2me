@@ -1,4 +1,4 @@
-log = new ObjectLogger('hubaaa.GitHubEndpointPuller', 'debug')
+log = new ObjectLogger('hubaaa.GitHubEndpointPuller', 'info')
 
 githubEndpointPulls = new Mongo.Collection "githubEndpointPulls"
 githubEndpointPulls._ensureIndex { 'username': 1 }, { unique: true }

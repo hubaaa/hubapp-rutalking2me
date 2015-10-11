@@ -4,10 +4,14 @@ log = new ObjectLogger 'Meteor.publish', 'debug'
 
 Meteor.publish 'trello-account', ->
   try
-    log.enter 'trello-account'
+    log.enter 'trello-account', @userId
     return if not @userId?
-    return Meteor.users.find { $and: [ { _id: @userId }, { 'services.trello': { $exists: true } } ] },
+    cursor =  Meteor.users.find { $and: [ { _id: @userId }, { 'services.trello': { $exists: true } } ] },
       { fields: { 'services.trello.username': 1 } }
+
+    log.debug("user", cursor.fetch())
+
+    return cursor
   finally
     log.return()
 
