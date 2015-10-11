@@ -1,0 +1,3 @@
+[submodule "app/packages/accounts-slack"]
+	path = app/packages/accounts-slack
+	url = git@github.com:hubaaa/meteor-accounts-slack.git
