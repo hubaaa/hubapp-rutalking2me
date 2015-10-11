@@ -18,3 +18,19 @@ body {
 .ui.horizontal.divider:before {
   height: 42px;
 }
+
+.at-social-btn {
+
+  height: 42px !important;
+  border-radius: 10px !important;
+  background-color: #2185d0 !important;
+  color: #fff !important;
+  text-transform: uppercase !important;
+}
+
+
+.at-social-btn i{
+  background-color: #2185d0 !important;
+  color: #fff !important;
+  font-size: 1.5em !important;
+}
