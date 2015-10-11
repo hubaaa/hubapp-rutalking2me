@@ -1,10 +1,17 @@
 <template name="header">
-  <div class="ui inverted menu">
-    <a class="header item" href="/">
-      rutalking2me
-    </a>
-    <div class="right menu">
-      {{>loginButton}}
+  <div class="ui container">
+    <div class="ui large secondary pointing menu" style="border-radius: 10px; border-bottom: 2px solid rgba(34, 36, 38, 0.2)">
+      <div class="header item">
+      <a class="" href="/">
+        <img id="logo" src="/logo.png" alt="">
+      </a>
+      <span style="margin-left: 5px; font-size: 11px">by</span><a class="" style="font-size: 11px; " href="//hubaaa.com">Hubaaa</a>
+      </div>
+      <div class="right menu">
+        <a class="ui item">
+          {{>loginButton}}
+        </a>
+      </div>
     </div>
   </div>
 </template>

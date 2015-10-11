@@ -1,0 +1,20 @@
+body {
+ background: url(/bg.png) repeat-y  ;
+ background-size: 100%
+}
+.ui.container {
+  max-width: 980px !important;
+}
+#logo {
+  width: 145px;
+  height: 14px;
+}
+
+.ru-orange {
+  color: rgb(242, 101, 34);
+}
+
+
+.ui.horizontal.divider:before {
+  height: 42px;
+}

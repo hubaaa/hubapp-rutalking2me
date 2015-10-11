@@ -22,6 +22,8 @@ Meteor.startup ->
     finally
       log.return()
 
+BlazeLayout.setRoot('body')
+
 FlowRouter.route '/',
   action: ->
     BlazeLayout.render "mainLayout", content: "home"

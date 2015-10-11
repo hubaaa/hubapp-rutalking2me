@@ -1,17 +1,30 @@
 <template name="home">
+  <div class="ui one column row">
+    <div class="center aligned column">
     <div class="ui huge header">
-      R U Talking 2 Me???
     </div>
-    <div class="ui segment">
+
+    <div class="row" style="text-align: center; margin-top: 20px">
+      <img src="/banner.png" alt="">
+    </div>
+
+    <div class="ui blue center aligned segment" style="border-radius: 10px; border-right: 0px; border-left: 0px; font-size: 18px !important">
       <p>
         Sends a message to your rutalking2me slackbot, whenever you're mentioned in github, trello, and in the future, in hackpad, facebook, twitter, and any other cloud app that supports mentioning.
       </p>
+      <div class="ui horizontal divider">
+<a class="ui large primary button" href="http://slack.rutalking2me.com" target="_blank" style="border-radius: 10px">
+        JOIN  <i class="right arrow icon"></i>
+</a>
+      </div>
+
+      <div class="ui medium text center aligned">
+        Before signing in, you will need to join the public rutalking2me slack team. <br>
+        Already joined the team? <a href="/login" id="login" class="at-link at-signup ru-orange" style="margin-left: 5px">Sign In</a>
+      </div>
+
     </div>
-    <div class="ui medium header">
-      Before signing in, you will need to join the public rutalking2me slack team:
-    </div>
-    <a class="ui huge primary button" href="http://slack.rutalking2me.com" target="_blank">Join the rutalking2me team<i class="right arrow icon"></i></a>
-  <div class="ui medium header">
-    Already joined the rutalking2me team? <a href="/login" id="login" class="at-link at-signup">Sign In</a>
+
   </div>
+</div>
 </template>
