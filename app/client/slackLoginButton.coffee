@@ -9,7 +9,8 @@ Template.slackLoginButton.onCreated ->
         try
           log.enter 'login'
           Meteor.loginWithSlack
-            requestPermissions: ['identify', 'post']
+            requestPermissions: ['incoming-webhook']
+#            requestPermissions: ['identify', 'post']
         finally
           log.return()
   finally

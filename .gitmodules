@@ -1,0 +1,9 @@
+[submodule "app/packages/accounts-slack"]
+	path = app/packages/accounts-slack
+	url = git@github.com:hubaaa/meteor-accounts-slack.git
+[submodule "app/packages/endpoint-puller"]
+	path = app/packages/endpoint-puller
+	url = git@github.com:hubaaa/meteor-endpoint-puller.git
+[submodule "app/packages/accounts-trello"]
+	path = app/packages/accounts-trello
+	url = git@github.com:jsep/meteor-accounts-trello.git

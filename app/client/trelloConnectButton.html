@@ -1,0 +1,10 @@
+<template name="trelloConnectButton">
+  <button class="at-social-btn ui fluid labeled icon trello large button" id="at-trello" name="trello" data-bind="click: click">
+    <i class="trello icon"></i>
+    {{#if username}}
+      Connected as {{username}}
+    {{else}}
+      Connect your Trello account
+    {{/if}}
+  </button>
+</template>
