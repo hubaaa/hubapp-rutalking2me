@@ -38,10 +38,13 @@ htmljs@1.0.5
 http@1.1.1
 hubaaa:easy-meteor-settings@0.1.1
 hubaaa:easy-service-config@0.1.0
+hubaaa:endpoint-puller@0.1.0
+hubaaa:json-pipes@0.1.1
 id-map@1.0.4
 jquery@1.11.4
 kadira:blaze-layout@2.1.0
 kadira:flow-router@2.7.0
+khamoud:slack-api@0.0.1
 launch-screen@1.0.4
 livedata@1.0.15
 localstorage@1.0.5

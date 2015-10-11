@@ -33,3 +33,6 @@ practicalmeteor:chai
 manuel:viewmodel
 hubaaa:easy-meteor-settings
 hubaaa:easy-service-config
+hubaaa:json-pipes
+hubaaa:endpoint-puller
+khamoud:slack-api

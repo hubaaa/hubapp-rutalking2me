@@ -11,7 +11,7 @@ Template.githubConnectButton.onCreated ->
         try
           log.enter 'click'
           if not Meteor.user()?.services?.github?
-            Meteor.linkWithGithub { requestPermissions: ['user:email', 'public_repo'] }, (error)->
+            Meteor.linkWithGithub { requestPermissions: ['user:email', 'notifications'] }, (error)->
               try
                 log.enter 'linkWithGithubCallback'
                 if error?
