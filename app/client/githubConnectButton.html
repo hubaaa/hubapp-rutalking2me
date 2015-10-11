@@ -1,0 +1,10 @@
+<template name="githubConnectButton">
+  <button class="at-social-btn ui fluid labeled icon github large button" id="at-github" name="github" data-bind="click: click">
+    <i class="github icon"></i>
+    {{#if username}}
+      Connected as {{username}}
+    {{else}}
+      Connect your GitHub account
+    {{/if}}
+  </button>
+</template>
