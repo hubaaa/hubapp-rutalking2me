@@ -1,10 +1,14 @@
 <template name="configure">
+  <center>
   <div class="at-title">
-    <h2 class="ui center aligned header">
+    <h2 class="ui center aligned header"  style="margin-top: 50px;">
       Connect at least one of your following accounts:
     </h2>
   </div>
-  <div class="ui divider"></div>
+  <div class="ui divider"  style="max-width: 600px"></div>
+  <div style="max-width: 550px">
   {{>githubConnectButton}}
   {{>trelloConnectButton}}
+  </div>
+</center>
 </template>

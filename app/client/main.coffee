@@ -13,15 +13,6 @@ Accounts.onLogin ->
   finally
     log.return()
 
-Meteor.startup ->
-  Tracker.autorun ->
-    try
-      log.enter 'onLoginStatusChanged'
-      if not Meteor.userId() and not Meteor.loggingIn()
-        FlowRouter.go("/")
-    finally
-      log.return()
-
 BlazeLayout.setRoot('body')
 
 FlowRouter.route '/',
@@ -33,5 +24,12 @@ FlowRouter.route '/login',
     BlazeLayout.render "mainLayout", content: "login"
 
 FlowRouter.route '/configure',
+
+  triggersEnter: [
+    (context, redirect)->
+      if not Meteor.userId() and not Meteor.loggingIn()
+        redirect("/")
+  ]
+
   action: ->
     BlazeLayout.render "mainLayout", content: "configure"
