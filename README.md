@@ -18,7 +18,7 @@ A meteor app that sends a message to a channel of your choosing (preferably your
 
 # Contributing
 
-See [Developer's Guide](DevGuide.md).
+An extended Developer's Guide to get you setup quickly can be found [here](DevGuide.md).
 
 # License
 

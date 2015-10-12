@@ -1,4 +1,4 @@
-log = new ObjectLogger 'Accounts', 'debug'
+log = new ObjectLogger 'Controller', 'debug'
 
 getSubdomain = (url)->
   url = url.replace("https://","")

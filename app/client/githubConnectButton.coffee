@@ -4,22 +4,6 @@ Template.githubConnectButton.onCreated ->
   try
     log.enter 'onCreated'
 
-    @subscribe 'github-account', {
-      onStop: (error)->
-        try
-          log.enter 'onStop'
-          if error?
-            log.error error
-            alertify.error('Oops. Something went wrong :-( Please try again later.', 2)
-        finally
-          log.return()
-      onReady: ->
-        try
-          log.enter 'onReady'
-        finally
-          log.return()
-    }
-
     @vm = new ViewModel 'githubConnectButtonViewModel',
       click: ->
         try

@@ -38,7 +38,7 @@ git submodule update
 
 #### Install
 
-The ngrok binary is already included in this repo's bin folder. In the future, I'll move the ngrok dependency to a docker ngrok image or an npm package that downloads and installs ngrok.
+Install the latest v2 ngrok binary from [here](https://ngrok.com/download) and add it to your path.
 
 #### Sign-Up
 
@@ -101,6 +101,38 @@ To start all tunnels specified in ngrok.yml:
 bin/ngrok start --all
 ```
 
+### Create your meteor settings file
+
+This app uses the [easy-service-config](https://atmospherejs.com/hubaaa/easy-service-config) meteor package to automatically load all the [loginWith](http://docs.meteor.com/#/full/meteor_loginwithexternalservice) related service configurations it finds in your meteor settings file under `serviceConfigurations` into meteor's `ServiceConfiguration.configurations` collection, so you won't have to configure your developer apps in meteor manually on first time use.
+
+Just copy the sample settings file in this repo and fill it with the info of the developers apps you'll create below:
+
+```bash
+# From the repo root
+cp samples/sample.settings.json settings.json
+vi settings.json
+```
+
+Once filled, run your meteor app as follows:
+
+```bash
+meteor --settings settings.json
+```
+
+### Create the Slack developer application
+
+Create a developer app [here](https://api.slack.com/applications).
+
+Choose a unique App Name, for example:
+
+myGithubUsername-rutalking2me
+
+Description can't be empty.
+
+For 'Link to app instructions and support' and Redirect URI(s), specify the ngrok.io public URL you'll use to expose your local app:
+
+https://*your-ngrok-subdomain*.ngrok.io/
+
 ### Create the GitHub developer application
 
 To create GitHub developer applications, you need to be on a paid personal or organizational github account.
@@ -109,9 +141,9 @@ Create a developer app [here](https://github.com/settings/developers).
 
 Choose a unique application name, for example:
 
-my-github-username.hubaaa.com
+myGithubUsername-rutalking2me
 
-This name will be sent to GitHub's api in the User-Agent header. More on that later.
+This name will be sent to GitHub's api in the User-Agent header. Save it in the settings file too.
 
 For **Homepage URL**, specify the ngrok.io public URL you'll use to expose your local app:
 
@@ -121,25 +153,11 @@ For **Authorization callback URL**, append `/_oauth/github` to the Homepage URL:
 
 https://*your-ngrok-subdomain*.ngrok.io/_oauth/github
 
-### Create your meteor settings file
+### Create the Trello developer application
 
-With meteor, you can manage your application environment's configuration with either environment variables or a settings json file that you provide to meteor on the command line, as follows:
+Trello supports only one developer application per user, which is automatically created when you go here:
 
-```bash
-meteor --settings settings.json
-```
-
-This app reads the required GitHub developer app info from a meteor settings file, so you'll need to create one. A sample is already provided in this repo. Just copy and modify it to include your GitHub developer app info:
-
-```bash
-# From the repo root
-cp samples/sample.settings.json settings.json
-vi settings.json
-```
-
-For appName, specify the name of the github developer application you created.
-
-The [easy-service-config](packages/easy-service-config) meteor package included in this repo automatically loads all the [loginWith](http://docs.meteor.com/#/full/meteor_loginwithexternalservice) related service configurations it finds in the settings file under `serviceConfigurations` into meteor's `ServiceConfiguration.configurations` collection, so you won't have to configure your GitHub developer application in meteor manually on first time use.
+https://trello.com/app-key
 
 ### Create your meteor runtime environment file
 
