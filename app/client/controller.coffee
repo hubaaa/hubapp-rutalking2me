@@ -8,7 +8,7 @@ getSubdomain = (url)->
 Template.registerHelper 'team', ->
   try
     log.enter 'team'
-    return if not Meteor.userId()
+    return if not Meteor.user()
     team_url = Meteor.user().profile?.team_url
     return if not team_url?
     return getSubdomain team_url
