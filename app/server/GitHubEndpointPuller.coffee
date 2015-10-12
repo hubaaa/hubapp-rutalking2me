@@ -2,7 +2,7 @@ log = new ObjectLogger('hubaaa.GitHubEndpointPuller', 'info')
 
 githubEndpointPulls = new Mongo.Collection "githubEndpointPulls"
 githubEndpointPulls._ensureIndex { 'username': 1 }, { unique: true }
-githubEndpointPulls._ensureIndex { last_pulled: 1 }
+githubEndpointPulls._ensureIndex { last_modified: 1 }
 
 class hubaaa.GitHubEndpointPuller extends hubaaa.EndpointPuller
 
@@ -24,6 +24,17 @@ class hubaaa.GitHubEndpointPuller extends hubaaa.EndpointPuller
 
       endpoint = "https://api.github.com/notifications"
 
+      lastModifiedDoc = githubEndpointPulls.findOne {'username': @username}
+      if lastModifiedDoc?
+        lastModifiedDocId = lastModifiedDoc._id
+      else
+        lastModifiedDocId = githubEndpointPulls.insert {'username': @username}
+
+      pullOptions =
+        sendIfModifiedSinceHeader: true
+        lastModifiedCollection: githubEndpointPulls
+        lastModifiedDocId: lastModifiedDocId
+
       httpOptions =
         headers:
           "Authorization": "token #{@accessToken}"
@@ -31,12 +42,16 @@ class hubaaa.GitHubEndpointPuller extends hubaaa.EndpointPuller
           "User-Agent": EasyMeteorSettings.getRequiredSetting('serviceConfigurations.github.appName')
           "query": "participating=true"
 
+      # So we don't get the same mentions every time the server restarts
+      if lastModifiedDoc?.lastModified?
+        httpOptions.headers['If-Modified-Since'] = lastModifiedDoc.lastModified
+
       jsonPipeOptions =
         filter: @filter
         transform: @transform
         process: @process
 
-      super(endpoint, httpOptions, sendIfModifiedSinceHeader: true, jsonPipeOptions)
+      super(endpoint, httpOptions, pullOptions, jsonPipeOptions)
     finally
       log.return()
 
