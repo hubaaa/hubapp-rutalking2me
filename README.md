@@ -22,4 +22,4 @@ An extended Developer's Guide to get you setup quickly can be found [here](DevGu
 
 # License
 
-GNU GENERAL PUBLIC LICENSE v2 (will probably change ro MIT soon)
+GNU GENERAL PUBLIC LICENSE v2 (will probably change to MIT soon)
