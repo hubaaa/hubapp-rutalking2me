@@ -4,13 +4,13 @@ A meteor app that sends a message to a channel of your choosing (preferably your
 
 # Known Issues
 
-- On server restart, will resend old GitHub mentions - will be fixed in next release.
+- On server restart, may sometimes resend old GitHub mentions - will be fixed in a next release.
 
 # Coming Soon
 
 - Support for disconnecting accounts
 
-- Support for switching trello teams
+- Support for switching slack teams
 
 - Support for more services - hackpad, facebook, twitter, and whatever other service that supports mentioning.
 
