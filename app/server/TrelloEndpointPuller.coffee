@@ -50,7 +50,7 @@ class hubaaa.TrelloEndpointPuller extends hubaaa.EndpointPuller
     try
       log.enter("_buildQueryParams",)
 
-      lastNotificationId = trelloEndpointPulls.findOne({}, {sort: createdAt:-1})?.id || "null"
+      lastNotificationId = trelloEndpointPulls.findOne({'user.id': @user.id}, {sort: createdAt:-1})?.id || "null"
       params =
         since: lastNotificationId
       return params
@@ -95,6 +95,9 @@ class hubaaa.TrelloEndpointPuller extends hubaaa.EndpointPuller
     try
       log.enter('transform', notification)
       notification.createdAt = new Date(notification.date)
+      notification.user = {
+        id: @user.id
+      }
       return notification
     finally
       log.return()
