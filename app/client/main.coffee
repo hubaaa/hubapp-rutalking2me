@@ -1,5 +1,20 @@
 log = new ObjectLogger 'Accounts', 'debug'
 
+getSubdomain = (url)->
+  url = url.replace("https://","")
+  url = url.replace("http://", "")
+  return url.split(".")?[0]
+
+Template.registerHelper 'team', ->
+  try
+    log.enter 'team'
+    return if not Meteor.userId()
+    team_url = Meteor.user().profile?.team_url
+    return if not team_url?
+    return getSubdomain team_url
+  finally
+    log.return()
+
 #Template.registerHelper 'absoluteUrl', ->
 #  return Meteor.absoluteUrl()
 
@@ -14,22 +29,3 @@ Accounts.onLogin ->
     log.return()
 
 BlazeLayout.setRoot('body')
-
-FlowRouter.route '/',
-  action: ->
-    BlazeLayout.render "mainLayout", content: "home"
-
-FlowRouter.route '/login',
-  action: ->
-    BlazeLayout.render "mainLayout", content: "login"
-
-FlowRouter.route '/configure',
-
-  triggersEnter: [
-    (context, redirect)->
-      if not Meteor.userId() and not Meteor.loggingIn()
-        redirect("/")
-  ]
-
-  action: ->
-    BlazeLayout.render "mainLayout", content: "configure"

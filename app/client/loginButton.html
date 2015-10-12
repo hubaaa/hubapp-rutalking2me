@@ -1,6 +1,6 @@
 <template name="loginButton">
 {{#if currentUser}}
-  <i class="slack icon"></i>{{currentUser.profile.name}}
+  <i class="slack icon"></i>{{team}}/{{currentUser.profile.name}}&nbsp;&nbsp;
   {{>logoutButton}}
 {{else}}
   {{#if loggingIn}}

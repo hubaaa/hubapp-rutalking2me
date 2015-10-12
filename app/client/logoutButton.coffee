@@ -12,6 +12,8 @@ Template.logoutButton.onCreated ->
           Meteor.logout (error)->
             if error?
               alertify.error('Oops. Something went wrong :-( Please try again later.', 2)
+            else
+              FlowRouter.go("/")
         finally
           log.return()
   finally
