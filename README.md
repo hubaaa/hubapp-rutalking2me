@@ -1,4 +1,4 @@
-# [R U Talking 2 Me?](https://rutalking2me.com)
+# [R U Talking 2 Me?](https://rutalking2me.meteor.com/)
 
 A meteor app that sends a message to a channel of your choosing (preferably your private slackbot), whenever you're mentioned in github and trello, and in the future, in any other cloud app that supports mentioning.
 
