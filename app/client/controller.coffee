@@ -24,8 +24,7 @@ Meteor.startup ->
 Accounts.onLogin ->
   try
     log.enter 'onLogin'
-    FlowRouter.go("/configure")
   finally
     log.return()
 
-BlazeLayout.setRoot('body')
+#BlazeLayout.setRoot('body')

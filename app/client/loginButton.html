@@ -1,13 +1,4 @@
 <template name="loginButton">
-{{#if currentUser}}
-  <i class="slack icon"></i>{{team}}/{{currentUser.profile.name}}&nbsp;&nbsp;
-  {{>logoutButton}}
-{{else}}
-  {{#if loggingIn}}
-    <div class="ui loading button">Loading</div>
-  {{else}}
-      <i class="slack icon"></i>
-      <a href="/login" class="ru-orange">Sign In with Slack</a>
-  {{/if}}
-{{/if}}
+  <i class="slack icon"></i>
+  <a class="ru-orange" data-bind="click: login">Sign In with Slack</a>
 </template>

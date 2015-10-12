@@ -1,0 +1,11 @@
+<template name="content">
+  {{#if currentUser}}
+    {{>configure}}
+  {{else}}
+    {{#if loggingIn}}
+      <div class="ui loading button">Loading</div>
+    {{else}}
+      {{>home}}
+    {{/if}}
+  {{/if}}
+</template>

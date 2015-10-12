@@ -15,7 +15,6 @@ caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.0.6
 coffeescript@1.0.10
-cosmos:browserify@0.5.1
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.1
@@ -46,7 +45,6 @@ jquery@1.11.4
 jsep:accounts-trello@0.1.0
 jsep:trello@0.0.2
 kadira:blaze-layout@2.1.0
-kadira:flow-router@2.7.0
 khamoud:slack-api@0.0.1
 launch-screen@1.0.4
 livedata@1.0.15
