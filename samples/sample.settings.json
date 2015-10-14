@@ -1,0 +1,20 @@
+{
+  "serviceConfigurations": {
+    "slack": {
+      "clientId": "myClientId",
+      "secret": "mySecret",
+      "loginStyle": "popup"
+    },
+    "github": {
+      "appName": "myUsername-rutalking2me",
+      "clientId": "myClientId",
+      "secret": "mySecret"
+    },
+    "trello": {
+      "name": "myUsername-rutalking2me",
+      "consumerKey": "myConsumerKey",
+      "secret": "mySecret",
+      "loginStyle": "popup"
+    }
+  }
+}

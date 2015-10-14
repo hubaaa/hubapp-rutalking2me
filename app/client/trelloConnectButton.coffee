@@ -6,14 +6,12 @@ Template.trelloConnectButton.onCreated ->
   try
     log.enter 'onCreated'
 
-    @subscribe 'trello-account'
-
     @vm = new ViewModel 'githubConnectButtonViewModel',
       click: ->
         try
           log.enter 'click'
           if not Meteor.user()?.services?.trello?
-            Meteor.linkWithTrello { requestPermissions: ['read'] }, (error)->
+            Meteor.linkWithTrello { requestPermissions: [] }, (error)->
               try
                 log.enter 'linkWithTrelloCallback'
                 if error?

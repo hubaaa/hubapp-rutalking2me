@@ -41,8 +41,9 @@ class hubaaa.TrelloEndpointPullerFactory
       expect(login.user).to.be.ok
       return if login.type isnt 'trello'
       expect(login.user.services.trello.username).to.be.ok
-      @pullers[login.user.services.trello.username] = new hubaaa.TrelloEndpointPuller(login.user)
-      @pullers[login.user.services.trello.username].start()
+      Meteor.defer =>
+        @pullers[login.user.services.trello.username] = new hubaaa.TrelloEndpointPuller(login.user)
+        @pullers[login.user.services.trello.username].start()
     finally
       log.return()
 

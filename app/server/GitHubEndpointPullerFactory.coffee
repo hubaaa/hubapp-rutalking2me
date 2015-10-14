@@ -39,8 +39,9 @@ class hubaaa.GitHubEndpointPullerFactory
       expect(login.user).to.be.ok
       return if login.type isnt 'github'
       expect(login.user.services.github.username).to.be.ok
-      @pullers[login.user.services.github.username] = new hubaaa.GitHubEndpointPuller(login.user)
-      @pullers[login.user.services.github.username].start()
+      Meteor.defer =>
+        @pullers[login.user.services.github.username] = new hubaaa.GitHubEndpointPuller(login.user)
+        @pullers[login.user.services.github.username].start()
     finally
       log.return()
 

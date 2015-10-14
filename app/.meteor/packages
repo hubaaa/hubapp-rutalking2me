@@ -18,14 +18,13 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 coffeescript
 http
-bozhao:link-accounts
+force-ssl
+hubaaa:link-accounts
 hubaaa:accounts-slack
 accounts-github
 semantic:ui-css
 useraccounts:core
 useraccounts:semantic-ui
-kadira:flow-router
-#useraccounts:flow-routing
 kadira:blaze-layout
 semantic:ui-icon
 ovcharik:alertifyjs

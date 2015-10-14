@@ -4,8 +4,6 @@ Template.githubConnectButton.onCreated ->
   try
     log.enter 'onCreated'
 
-    @subscribe 'github-account'
-
     @vm = new ViewModel 'githubConnectButtonViewModel',
       click: ->
         try
